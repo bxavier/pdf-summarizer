@@ -4,6 +4,43 @@ import * as fs from 'fs';
 import { Logger } from '../utils/logger';
 import { DEFAULT_CONFIG } from '../config/app-config';
 
+/**
+ * @swagger
+ * /files:
+ *   get:
+ *     summary: List generated PDF files
+ *     description: Returns a list of all generated PDF files in the output directory
+ *     tags: [Files]
+ *     responses:
+ *       200:
+ *         description: Files listed successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 files:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/FileInfo'
+ *                 totalCount:
+ *                   type: number
+ *                   description: Total number of files
+ *             example:
+ *               files:
+ *                 - name: "document-summary-2025-08-25T01-30-00.pdf"
+ *                   path: "/files/document-summary-2025-08-25T01-30-00.pdf"
+ *                   size: 125432
+ *                   created: "2025-08-25T01:30:00.000Z"
+ *                   modified: "2025-08-25T01:30:00.000Z"
+ *               totalCount: 1
+ *       500:
+ *         description: Failed to list files
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
 export const listFiles = (req: Request, res: Response) => {
   Logger.info('Files', 'list', 'File list requested');
 
@@ -34,6 +71,42 @@ export const listFiles = (req: Request, res: Response) => {
   }
 };
 
+/**
+ * @swagger
+ * /files/{filename}:
+ *   get:
+ *     summary: Download a generated PDF file
+ *     description: Download a specific PDF file by filename
+ *     tags: [Files]
+ *     parameters:
+ *       - in: path
+ *         name: filename
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Name of the PDF file to download
+ *         example: "document-summary-2025-08-25T01-30-00.pdf"
+ *     responses:
+ *       200:
+ *         description: File downloaded successfully
+ *         content:
+ *           application/pdf:
+ *             schema:
+ *               type: string
+ *               format: binary
+ *       404:
+ *         description: File not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Download failed
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
 export const downloadFile = (req: Request, res: Response) => {
   const filename = req.params.filename;
   Logger.info('Files', 'download', `Download requested: ${filename}`);

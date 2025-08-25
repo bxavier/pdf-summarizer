@@ -43,6 +43,19 @@ npm start          # Production
 npm run cli test.pdf
 ```
 
+## API Documentation
+
+The application includes comprehensive OpenAPI/Swagger documentation:
+
+- **Interactive UI**: `http://localhost:3000/api-docs`
+- **JSON Spec**: `http://localhost:3000/api-docs.json`
+
+The documentation includes:
+- Complete endpoint descriptions
+- Request/response schemas
+- Example payloads
+- Interactive testing interface
+
 ## API Endpoints
 
 ```
@@ -51,6 +64,8 @@ GET  /files               # List processed files
 GET  /files/download/:filename  # Download file
 POST /process             # Process PDF document
 POST /summarize           # Summarize HTML content
+GET  /api-docs            # Interactive API documentation (Swagger UI)
+GET  /api-docs.json       # OpenAPI specification JSON
 ```
 
 ### PDF Processing Example
