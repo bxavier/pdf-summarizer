@@ -120,10 +120,20 @@ src/
 2. **Structure Detection**: Configurable patterns (e.g., "Unit" > "Lesson")
 3. **Section Summaries**: Local LLM via Ollama
 4. **PDF Export**: Customizable HTML/CSS templates
-5. **Multi-language**: pt, en, es, fr
+5. **Smart Language Handling**: LLM automatically determines output language from content, or follows explicit language parameter
 6. **Auto Retry**: For LLM failures
 7. **Structured Logging**: Colored NestJS style
 8. **HTML Summarization**: Direct content summarization
+9. **Markdown Support**: LLM outputs formatted markdown that's converted to styled HTML in PDFs
+
+## Language Support
+
+The application uses intelligent language handling powered by the Granite LLM:
+
+- **Auto-Detection**: If no language is specified, the LLM automatically detects the input language and responds accordingly
+- **Explicit Language**: You can specify any language as a string (e.g., "English", "Portuguese", "Spanish", "French", "Japanese")
+- **Granite Training**: The LLM is trained in English but can understand and respond in multiple languages
+- **Context-Aware**: The LLM considers both the content language and any explicit language instruction
 
 ## Parameters
 
@@ -131,7 +141,7 @@ src/
 
 - `sectionPattern`: Pattern to detect main sections (e.g., "Unit", "Chapter", "Unidade")
 - `subSectionPattern`: Pattern to detect subsections (e.g., "Lesson", "Section", "Aula")
-- `outputLanguage`: Output language (`en`, `pt`, `es`, `fr`)
+- `language`: Output language as string (e.g., "English", "Portuguese", "Spanish") - optional, LLM will infer from content if not provided
 - `documentTitle`: Optional custom title for the output
 - `filename`: Optional custom filename for the output
 - `subject`: Optional subject context for better summaries (default: "academic content")
@@ -139,7 +149,7 @@ src/
 ### HTML Summarization Parameters
 
 - `html`: HTML content to summarize
-- `language`: Output language (`en`, `pt`, `es`, `fr`)
+- `language`: Output language as string (e.g., "English", "Portuguese") - optional, LLM will infer from content if not provided
 
 ## Use Cases
 
@@ -149,7 +159,7 @@ src/
 {
   "sectionPattern": "Unidade",
   "subSectionPattern": "Aula",
-  "outputLanguage": "pt",
+  "language": "Portuguese",
   "subject": "software engineering"
 }
 ```
@@ -160,17 +170,28 @@ src/
 {
   "sectionPattern": "Chapter",
   "subSectionPattern": "Section",
-  "outputLanguage": "en",
+  "language": "English",
   "subject": "machine learning"
 }
 ```
+
+### Content with Auto-Detection
+
+```json
+{
+  "sectionPattern": "Unit",
+  "subSectionPattern": "Lesson",
+  "subject": "physics"
+}
+```
+*Note: Language will be automatically inferred from the content*
 
 ### HTML Content Summarization
 
 ```json
 {
   "html": "<div><h1>Risk Management</h1><p>Content about software risks...</p></div>",
-  "language": "en"
+  "language": "English"
 }
 ```
 
