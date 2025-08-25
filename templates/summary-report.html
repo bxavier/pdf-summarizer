@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{LANGUAGE}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{DOCUMENT_TITLE}}</title>
+    <style>
+      {{CSS_STYLES}}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>{{DOCUMENT_TITLE}}</h1>
+      <p class="date">{{GENERATION_DATE}}</p>
+      <p class="metadata">{{METADATA}}</p>
+    </header>
+
+    <nav class="toc">
+      <h2>{{TOC_TITLE}}</h2>
+      <ul>
+        {{TOC_ITEMS}}
+      </ul>
+    </nav>
+
+    <main>{{CONTENT_SECTIONS}}</main>
+
+    <footer>
+      <p>{{FOOTER_TEXT}}</p>
+    </footer>
+  </body>
+</html>

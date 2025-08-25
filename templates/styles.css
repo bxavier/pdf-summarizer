@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: white;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #007acc;
+}
+
+header h1 {
+  color: #007acc;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.date,
+.metadata {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.toc {
+  background: #f8f9fa;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  page-break-inside: avoid;
+}
+
+.toc h2 {
+  color: #007acc;
+  margin-bottom: 1rem;
+}
+
+.toc ul {
+  list-style: none;
+}
+
+.toc li {
+  margin-bottom: 0.5rem;
+}
+
+.toc a {
+  color: #007acc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+.section {
+  margin-bottom: 3rem;
+  page-break-inside: avoid;
+}
+
+.section h2 {
+  color: #007acc;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.subsections {
+  background: #f1f3f4;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.subsections h3 {
+  color: #555;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.subsections ul {
+  margin-left: 1rem;
+}
+
+.subsections li {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.summary h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.summary-content {
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.summary-content p {
+  margin-bottom: 1rem;
+}
+
+.summary-content strong {
+  color: #007acc;
+  font-weight: 600;
+}
+
+.summary-content em {
+  color: #555;
+  font-style: italic;
+}
+
+.summary-content h3 {
+  color: #007acc;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.8rem 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3rem;
+}
+
+.summary-content h4 {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.6rem 0;
+}
+
+.summary-content ol,
+.summary-content ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.summary-content ol li,
+.summary-content ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.summary-content ol {
+  list-style-type: decimal;
+}
+
+.summary-content ul {
+  list-style-type: disc;
+}
+
+.section-separator {
+  border-top: 2px solid #ddd;
+  margin: 2rem 0;
+  padding-top: 1rem;
+}
+
+.no-summary {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+@media print {
+  .section {
+    page-break-inside: avoid;
+  }
+
+  .toc {
+    page-break-after: always;
+  }
+}
