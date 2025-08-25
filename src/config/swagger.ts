@@ -4,7 +4,7 @@ import { SwaggerDefinition } from 'swagger-jsdoc';
 const swaggerDefinition: SwaggerDefinition = {
   openapi: '3.0.0',
   info: {
-    title: 'PDF Resumer API',
+    title: 'PDF Summarizer API',
     version: '1.0.0',
     description: 'A Node.js application that extracts text from PDFs and generates intelligent summaries using local LLM models (Ollama)',
     contact: {

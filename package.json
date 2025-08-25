@@ -1,5 +1,5 @@
 {
-  "name": "pdf-resumer",
+  "name": "pdf-summarizer",
   "version": "1.0.0",
   "description": "PDF reader with LLM summarization",
   "main": "dist/main.js",

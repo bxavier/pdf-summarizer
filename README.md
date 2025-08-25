@@ -1,4 +1,4 @@
-# PDF Resumer
+# PDF Summarizer
 
 A simple Node.js application that extracts text from PDFs and generates intelligent summaries using local LLM models (Ollama).
 

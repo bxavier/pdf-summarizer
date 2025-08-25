@@ -16,7 +16,7 @@ app.use(express.json());
 // Swagger documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
   customCss: '.swagger-ui .topbar { display: none }',
-  customSiteTitle: 'PDF Resumer API Documentation'
+  customSiteTitle: 'PDF Summarizer API Documentation'
 }));
 
 // JSON spec endpoint
@@ -34,7 +34,7 @@ app.use(errorHandler);
 
 // Start server
 app.listen(port, () => {
-  Logger.success('Server', 'start', `PDF Resumer running on port ${port}`);
+  Logger.success('Server', 'start', `PDF Summarizer running on port ${port}`);
   Logger.info('Server', 'start', `Health: http://localhost:${port}/health`);
   Logger.info('Server', 'start', `API Documentation: http://localhost:${port}/api-docs`);
 });
